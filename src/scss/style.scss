@@ -117,6 +117,7 @@ body {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -133,14 +134,14 @@ body {
 /*CREATE VISIT*/
 
 /*Create Visit BTN*/
-#registration-btn {
+#create-visit-btn {
   background-color: #44bea9;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 96px;
   color: white;
   font-size: 14px;
+  cursor: pointer;
 }
 .none {
   display: none;
@@ -256,6 +257,7 @@ select {
   width: 74px;
   color: white;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .headerText {
@@ -290,6 +292,7 @@ select {
   width: 85px;
   color: white;
   font-size: 14px;
+  cursor: pointer;
 }
 .button-edit {
   margin: 0 0 0 40px;
@@ -300,6 +303,7 @@ select {
   width: 56px;
   color: white;
   font-size: 14px;
+  cursor: pointer;
 }
 
 /*FILTER*/
@@ -357,5 +361,16 @@ select {
     width: 74px;
     color: white;
     font-size: 14px;
+    cursor: pointer;
   }
+}
+
+#registration-btn {
+  background-color: #44bea9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
 }

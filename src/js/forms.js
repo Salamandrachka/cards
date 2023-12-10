@@ -353,7 +353,8 @@ export class Login extends Modal {
         if (token) {
           this.window.classList.remove("active");
           loginBtn.classList.add("none");
-          registerBtn.classList.remove("none");
+          registerBtn.classList.add("none");
+          createVisitBtn.classList.remove("none");
           await request.getALLCards();
         } else {
           console.error("Authorization failed: Token not received");
@@ -373,8 +374,8 @@ const registrationForm = new CreateVisit(
   "lorem ipsum dolot"
 );
 
-const registerBtn = document.querySelector("#registration-btn");
-registerBtn.addEventListener(
+const createVisitBtn = document.querySelector("#create-visit-btn");
+createVisitBtn.addEventListener(
   "click",
   registrationForm.openModal.bind(registrationForm)
 );
@@ -386,3 +387,6 @@ const loginBtn = document.querySelector("#login-btn");
 
 loginBtn.addEventListener("click", loginForm.openModal.bind(loginForm));
 root.append(loginForm.render(loginForm.createForm()));
+
+// Register
+const registerBtn = document.querySelector(".registration-btn-link");
