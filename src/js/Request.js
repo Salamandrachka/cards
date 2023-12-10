@@ -7,6 +7,7 @@ export class Request {
   }
 
   async autorization(formData) {
+    localStorage.removeItem("token");
     const response = await fetch(`${this.url}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,6 +19,7 @@ export class Request {
       const token = await response.text();
       localStorage.setItem("token", token);
       console.log(token);
+
       return token;
     }
   }
@@ -32,12 +34,12 @@ export class Request {
     });
     let responseJson = await response.json();
 
-    // If "No cards" message is currently displayed, hide it
     if (!this.noCards.classList.contains("hidden")) {
       this.noCards.classList.add("hidden");
     }
     return responseJson;
   }
+
   async getALLCards() {
     const response = await fetch(`${this.url}`, {
       method: "GET",
@@ -46,11 +48,13 @@ export class Request {
       },
     });
     let responseJson = await response.json();
+
     if (responseJson.length === 0) {
       this.noCards.classList.remove("hidden");
     } else {
       this.noCards.classList.add("hidden");
     }
+
     responseJson.forEach((dataCard) => {
       let card = new Card(dataCard);
       card.createCard();
@@ -59,8 +63,11 @@ export class Request {
       //delete class undefined which was added in createCard() in class Card
       card.card.classList.remove("undefined");
     });
+    console.log(responseJson);
+
     return responseJson;
   }
+
   async deleteCard(id) {
     const response = await fetch(`${this.url}/${id}`, {
       method: "DELETE",
@@ -69,10 +76,11 @@ export class Request {
       },
     });
 
-    const cards = await this.getALLCards();
-    if (cards.length === 0) {
+    const remainingCards = document.querySelectorAll(".card");
+    if (remainingCards.length === 0) {
       this.noCards.classList.remove("hidden");
     }
+
     return response;
   }
 

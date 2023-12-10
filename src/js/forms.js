@@ -92,7 +92,7 @@ export class CreateVisit extends Modal {
     const onSelectDoctor = () => {
       const selectedDoctor = document.getElementById("doctor-select");
       const selectDoctorValue = selectedDoctor.value;
-      //find all the elements with classes for fields and delete them
+
       const fieldsToRemove = document.querySelectorAll(
         ".cardiologist-fields, .dentist-fields, .therapist-fields"
       );
@@ -133,6 +133,14 @@ export class CreateVisit extends Modal {
         const card = new Card(response);
         card.createCard();
       });
+
+      const optionalFields = document.querySelectorAll(
+        ".cardiologist-fields, .dentist-fields, .therapist-fields"
+      );
+      optionalFields.forEach((field) => {
+        field.remove();
+      });
+
       const visitData = new Visit(formData);
       console.log(visitData);
 
@@ -225,7 +233,7 @@ export class EditVisit extends Modal {
     const doctorOption = document.createElement("div");
     const selectdoctor = document.createElement("select");
     selectdoctor.id = "doctor-select-edit";
-    selectdoctor.name = "doctor"; 
+    selectdoctor.name = "doctor";
 
     selectdoctor.innerHTML = `
           <option value="">--Please choose a doctor--</option>
@@ -326,6 +334,7 @@ export class Login extends Modal {
       "Вход",
       "ERROR"
     );
+
     loginForm.append(
       headerText,
       inputLogin.render(),
@@ -333,18 +342,26 @@ export class Login extends Modal {
       inputSubmit.render()
     );
 
-    loginForm.addEventListener("submit", (event) => {
+    loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       let formData = new FormData(loginForm);
       let dataform = Object.fromEntries(formData.entries());
       const request = new Request("https://ajax.test-danit.com/api/v2/cards");
-      request.autorization(dataform);
-      this.window.classList.remove("active");
-      loginBtn.classList.add("none");
-      registerBtn.classList.remove("none");
-      request.getALLCards();
-    });
 
+      try {
+        const token = await request.autorization(dataform);
+        if (token) {
+          this.window.classList.remove("active");
+          loginBtn.classList.add("none");
+          registerBtn.classList.remove("none");
+          await request.getALLCards();
+        } else {
+          console.error("Authorization failed: Token not received");
+        }
+      } catch (error) {
+        console.error("Error during authorization:", error);
+      }
+    });
     return loginForm;
   };
 }

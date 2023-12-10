@@ -98,12 +98,9 @@ export class Card extends Component {
           if (key === "doctor" || key === "fullname" || key === "id") continue;
           const li = document.createElement("li");
           li.classList.add("card-item");
-
           li.textContent = `${key}: ${res[key]}`;
-          //delete all classes of the card
           this.card.classList.remove(...this.card.classList);
           console.log(this.dataCard.priority);
-          //add class "card" and priority
           this.card.classList.add("card");
           this.card.classList.add(`${formDataObj.priorityEdit}`);
           li.style.display = "none";

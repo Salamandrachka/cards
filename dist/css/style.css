@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*nav*/
 nav {
   display: flex;
@@ -17,9 +16,7 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  color: #44BEA9;
-  /* text-decoration: none; */
-  /* font-size: 23px; */
+  color: #44bea9;
   font-weight: 700;
   line-height: 33px;
   width: 68px;
@@ -36,12 +33,6 @@ nav {
   font-size: 18px;
 }
 
-/*LOGIN FORM*/
-/*LOGIN BTN*/
-/* Стилі для текстового поля */
-/* Стилі для кнопки */
-/*EYE*/
-/* Стилі для кнопки при наведенні */
 /* ------------------------modal login ------------------------ */
 .log-modal {
   position: fixed;
@@ -128,11 +119,10 @@ body {
   display: block;
 }
 
-/**/
 /*CREATE VISIT*/
 /*Create Visit BTN*/
 #registration-btn {
-  background-color: #44BEA9;
+  background-color: #44bea9;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -141,14 +131,18 @@ body {
   font-size: 14px;
 }
 
-#registration-form, #edit-form {
+.none {
+  display: none;
+}
+
+#registration-form,
+#edit-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   text-align: center;
   row-gap: 17px;
-  /* padding-top: 45px; */
 }
 
 #registration-form input {
@@ -176,7 +170,7 @@ body {
   color: white;
   display: inline-block;
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -184,19 +178,16 @@ body {
   cursor: pointer;
 }
 
-.visit-submit-btn, .visit-edit-btn {
+.visit-submit-btn,
+.visit-edit-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #44BEA9;
+  background-color: #44bea9;
   color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-}
-
-.none {
-  display: none;
 }
 
 .cardiologist-fields {
@@ -226,7 +217,6 @@ select {
   border-radius: 5px;
 }
 
-/**/
 /*Login BTN*/
 #login-form {
   display: flex;
@@ -237,7 +227,6 @@ select {
   row-gap: 7px;
 }
 
-/**/
 #login-form input {
   padding: 10px;
   margin-bottom: 20px;
@@ -248,7 +237,7 @@ select {
 .login-submit-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #44BEA9;
+  background-color: #44bea9;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -257,7 +246,7 @@ select {
 }
 
 #login-btn {
-  background-color: #44BEA9;
+  background-color: #44bea9;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -266,13 +255,11 @@ select {
   font-size: 14px;
 }
 
-/**/
 .headerText {
   color: green;
   margin: 10px;
 }
 
-/*******/
 .wrapper-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -298,7 +285,7 @@ select {
 }
 
 .show-more {
-  background-color: #44BEA9;
+  background-color: #44bea9;
   padding: 7px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -309,7 +296,7 @@ select {
 
 .button-edit {
   margin: 0 0 0 40px;
-  background-color: #44BEA9;
+  background-color: #44bea9;
   padding: 7px 1px 7px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -346,7 +333,7 @@ select {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 .filter__btn {
-  background-color: #44BEA9;
+  background-color: #44bea9;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -354,5 +341,3 @@ select {
   color: white;
   font-size: 14px;
 }
-
-/**/
